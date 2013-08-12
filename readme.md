@@ -4,9 +4,11 @@ The goal of this article is to provide an introductory overview of web performan
 
 ## What is performance? Why do we optimize?
 
-It's important to understand that "performance" can refer to both **end-user performance** (the amount of time it takes to load a website), as well as the **efficiency and resource usage of the server**. 
+It's important to understand that "performance" can refer to both **end-user performance** (the amount of time it takes to load a website), as well as the **speed, complexity, and resource usage of the server**. 
 
-What is the impact of slow sites? Lower conversions and engagement, higher bounce rates... the business case for performance has been well-proven in studies.  Thus 99% of the time, we are optimizing the user experience. Optimizations unrelated to user experience are generally for ulterior reasons such as refactoring code or lowering resource usage/costs.
+Performance has a direct effect on a business' bottom line. The correlation between web performance and business metrics -- whether it be user experience, conversions and engagement, bounce rates, search engine ranking -- has been well-proven with data and research studies. Some examples include [Google and Bing's analysis of performance and user impact](https://dl.dropboxusercontent.com/u/598519/web-performance-guide-assets/The%20User%20and%20Business%20Impact%20of%20Server%20Delays%2C%20Additional%20Bytes%2C%20and%20HTTP%20Chunking%20in%20Web%20Search%20Presentation.pptx), [a presentation by Shopzilla.com's VP of Enginnering](https://dl.dropboxusercontent.com/u/598519/web-performance-guide-assets/Shopzilla%27s%20Site%20Redo%20-%20You%20Get%20What%20You%20Measure%20Presentation.ppt), and [a study by the performance analytics company Torbit](https://dl.dropboxusercontent.com/u/598519/web-performance-guide-assets/sept-2012-rum-talk-120910130322-phpapp01.key).
+
+Performance optimization is therefore driven by business value. And, since business value is primarily derived from good user experience, **performance optimization is about improving user experience**. Optimizations non-related to user experience such as refactoring code or lowering server costs are generally a lesser priority.
 
 ## What should I optimize?
 Delivering a fast and optimized user experience in the browser requires careful thinking across many layers of the stack - TCP and up. An HTTP request is initiated by the client, data is transmitted over the internet, and eventually arrives at the application server…. the application server may then communicate with various services (eg. database, APIs, memcached) before finally producing a response that is sent back to the client.
@@ -160,7 +162,6 @@ Another way to optimize serial I/O is to move them out of the response process a
 
 Serial requests don't just affect API calls -- check out a [Rails plugin](http://ninjasandrobots.com/rails-faster-partial-rendering-and-caching)
  that one of my former co-workers wrote that solved the problem of serial Memcached requests when fetching cached fragments. It uses a Memcached multi-get, which batches memcached requests.
-
 
 #### Additional resources:
 - [High Scalability](http://highscalability.com)
